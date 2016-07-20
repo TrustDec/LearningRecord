@@ -15,7 +15,7 @@
 	$files=scandir($dir);		# 浏览目录
 	var_dump($files);		
 # 遍历目录
-	$dir = '../../';		// 定义目录
+	$dir = '../../';		// 定义目录LearningRecord
 	$o = opendir($dir);	// 获取资源
 	$count = 0;		// 计数器
 	while($filename = readdir($o)){
@@ -27,7 +27,60 @@
 		echo $filename,'<br>';
 		++$count;	//计数
 	}
-
+# 目录操作原理
+	# opendir
+		# 找到对应目录
+		# 将目录所有文件全部读入到内存(包含子文件下的所有文件)
+		# 将目录指针指向第一个文件
+	# readdir
+		# 读取当前指针所指的文件的文件名
+		# 将目录指针向下移动一位
+echo "<hr>";
+# 文件相关函数
+	# file_exists:判断文件是否存在,存在返回true,不存在返回false;	
+		$dir1 = './';
+		$dir2 = '../';
+		$dir3 = __FILE__;	# 当前文件的完整路径和文件名
+		$dir4 = './test';		# 没有该文件
+		$dir5 = __DIR__;	# 当前文件的完整路径(5.3new)
+		$dir6 = 'demo.txt';
+		var_dump(file_exists($dir1));
+		var_dump(file_exists($dir2));
+		var_dump(file_exists($dir3));
+		var_dump(file_exists($dir4));
+		var_dump(file_exists($dir5));
+		var_dump(file_exists($dir6));
+		echo "<hr>";
+	# is_dir: 判断给定的路径是否是一个路径,是为true,假false
+		var_dump(is_dir($dir1));
+		var_dump(is_dir($dir2));
+		var_dump(is_dir($dir3));
+		var_dump(is_dir($dir4));
+		var_dump(is_dir($dir5));
+		var_dump(is_dir($dir6));
+		echo "<hr>";
+	# is_file: 判断给定的路径是否是一个文件...返回(Boolean)
+		var_dump(is_file($dir1));
+		var_dump(is_file($dir2));
+		var_dump(is_file($dir3));
+		var_dump(is_file($dir4));
+		var_dump(is_file($dir5));
+		var_dump(is_file($dir6));
+		echo "<hr>";
+	# mkdir :创建文件夹,不能创建同名文件夹(linux下:必须保证当前文件夹有php所在组有权限进行写操作
+		var_dump(mkdir('new'));
+		//var_dump(mkdir('文件夹.....'));
+		echo "<hr>";
+	# rmdir :删除文件夹
+		var_dump(rmdir('new'));
+	# getcwd :获取当前操作目录
+		var_dump(getcwd());
+	# chdir:改变当前操作目录,代表进入到目标目录
+		//chdir 改变工作目录
+		var_dump(@chdir($dir5));
+		
+		var_dump(@chdir('son'));
+		var_dump(getcwd());
 
 
 /**
