@@ -11,7 +11,7 @@ include '../header.php';
 	file_put_contents('../Dame02/1.txt',"改喽");
 	echo "<br>";
 	echo file_get_contents('../Dame02/1.txt');
-	file_put_contents('../Dame02/1.txt',"改喽122222222222",FILE_APPEND);
+	file_put_contents('../Dame02/1.txt',"这是Dome1跨文件夹的测试文件",FILE_APPEND);
 	echo "<br>";
 	echo file_get_contents('../Dame02/1.txt');
 	//echo file_get_contents('http://new.060s.com/article/2016/07/07/2186609.htm');
@@ -43,11 +43,11 @@ include '../header.php';
 	# 写内容的时候,会覆盖原来位置的内容,内容会被重写
 		//写入内容
 		var_dump(fwrite($f, 'hello world'));
-	#fclose :关闭文件资源
-		fclose($f);
 	# fseek :重置指针位置,需要用户自己指定位置
 		fseek($f, 0);
 		fwrite($f, "<?php   \r\n?>");
+	#fclose :关闭文件资源
+		fclose($f);
 	# fopen中w与w+的区别测试(手册)
 		# w:写入方式打开,将文件指针指向文件头并将文件大小截为零,如果文件不存在则尝试创建
 			/**
