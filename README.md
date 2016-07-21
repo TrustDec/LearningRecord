@@ -1,2 +1,2 @@
-# LearningRecord
-笔记仓库
+# 前言
+待续.....
