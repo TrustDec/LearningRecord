@@ -1,5 +1,5 @@
 <?php
-	include 'header.php';
+	include '../header.php';
 
 	$dir="D:/wamp/www/LearningRecord/php/Dame01";
 	# 获取资源

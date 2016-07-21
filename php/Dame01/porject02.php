@@ -1,5 +1,5 @@
 <?php 
-	include 'header.php';
+	include '../header.php';
 	# 递归函数
 	$Array = range(1,100);
 	function getValue1(){

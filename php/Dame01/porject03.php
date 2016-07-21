@@ -1,5 +1,5 @@
 <?php 
-	include 'header.php';
+	include '../header.php';
 	function getNumSpli($num){
 		if ($num ==1||$num == 0) {
 			return $num;

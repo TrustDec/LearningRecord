@@ -1,5 +1,5 @@
 <?php 
-	include 'header.php';
+	include '../header.php';
 # 文件目录操作	(文件/文件夹的增删改查)
 # 定义一个路径
 	$dir = './';	# 当前目录
