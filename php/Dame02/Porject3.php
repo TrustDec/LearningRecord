@@ -1,9 +1,10 @@
 <?php 
-	#
+	# 假设保存的是用户提交的数据
 	$username = 'mark';
 	$password = md5('1234');
 	$type = 1;
-	$hobby = "1|3|6";
+	$hobby = "1|3|6";	
+	# explode:转换成数组
 	$hobby = explode('|',$hobby);
 ?>
 <!doctype html>
