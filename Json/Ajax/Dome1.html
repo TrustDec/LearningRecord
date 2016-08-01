@@ -2,8 +2,12 @@
 <script src="../js/jquery.xml2json.js"></script>
 <script src="../js/jquery.json2xml.js"></script> 
 <script src="../js/publick.js"></script> 
+<div id="div" style="width:300px;height:50px;border:1px solid red;color:green;"></div>
+<button >1111</button>
+<div ></div>
 <script type="text/javascript">
-	var xmlhttp;
+	/**   JS原生实现获取XML */
+	/*var xmlhttp;
 	xmlhttp = GreateXHR();
 	xmlhttp.open("GET","test.xml",true);
 	xmlhttp.send();
@@ -12,7 +16,7 @@
 			var xmlroot=xmlhttp.responseXML;
 			cl(typeof xmlroot);
 			var friends = xmlroot.getElementsByTagName('friends');
-			cl(friends);
+			cl(friends[0].innerHTML);
 		};
 	}
 	function GreateXHR(){
@@ -22,5 +26,20 @@
 			//IE6/5
 			return new ActiveXObject("Microsoft.XMLHTTP");
 		}
+	}*/
+	/*JQuery 获取json数据*/
+	$("button").click(function(){content($("#div"),"name")});
+	// 封装请求
+	function content(obj,va){
+		$.ajax({
+			url:"test.json",
+			type:"POST",
+			dataType:"json",
+			complete:function(data) {
+				var opo=data.responseText;
+				var pp=JSON.parse(opo);
+				obj.html(pp[va]);
+			}
+		});
 	}
 </script>
